@@ -1,7 +1,7 @@
 package com.maple.demo.kotlinmvvm
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
 import org.jetbrains.anko.toast
 
