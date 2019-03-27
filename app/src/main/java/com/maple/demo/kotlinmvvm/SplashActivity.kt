@@ -2,11 +2,11 @@ package com.maple.demo.kotlinmvvm
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import com.maple.demo.kotlinmvvm.app.base.BaseActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

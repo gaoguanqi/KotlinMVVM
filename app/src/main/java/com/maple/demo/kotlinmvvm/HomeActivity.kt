@@ -1,11 +1,11 @@
 package com.maple.demo.kotlinmvvm
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.KeyEvent
+import com.maple.demo.kotlinmvvm.app.base.BaseActivity
 import org.jetbrains.anko.toast
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     var lastBackPressedMillis:Long = 0
 

@@ -37,4 +37,7 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
 
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
+
+    //https://github.com/afollestad/material-dialogs
+    //implementation 'com.afollestad.material-dialogs:core:2.6.0'
 }
