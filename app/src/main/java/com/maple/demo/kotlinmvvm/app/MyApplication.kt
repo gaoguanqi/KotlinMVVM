@@ -2,6 +2,7 @@ package com.maple.demo.kotlinmvvm.app
 
 import android.app.Application
 import com.blankj.utilcode.util.Utils
+import es.dmoral.toasty.Toasty
 
 /**
  * author: gaogq
@@ -18,5 +19,6 @@ class MyApplication : Application(){
         super.onCreate()
         instance = this
         Utils.init(this)
+        Toasty.Config.getInstance().apply()
     }
 }

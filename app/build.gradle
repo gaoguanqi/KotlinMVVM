@@ -58,6 +58,7 @@ dependencies {
     implementation "org.jetbrains.anko:anko-commons:$anko_version"
 
     implementation 'com.blankj:utilcode:1.23.7'
+    implementation 'com.github.GrenderG:Toasty:1.4.1'
     //https://github.com/afollestad/material-dialogs
     //implementation 'com.afollestad.material-dialogs:core:2.6.0'
 

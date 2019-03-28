@@ -5,7 +5,7 @@ package com.maple.demo.kotlinmvvm.app.config
  * time: 2019/3/27 18:20
  * description:
  */
-class AppContent {
+class AppConstants {
     companion object {
         val savekey_has_weclome = "hasWeclome"
 
