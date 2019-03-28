@@ -1,19 +1,20 @@
-package com.maple.demo.kotlinmvvm
+package com.maple.demo.kotlinmvvm.view.activity
 
 import android.os.Bundle
 import android.view.KeyEvent
+import com.maple.demo.kotlinmvvm.R
 import com.maple.demo.kotlinmvvm.app.base.BaseActivity
 import org.jetbrains.anko.toast
 
 class HomeActivity : BaseActivity() {
+    override fun layoutResID(): Int  = R.layout.activity_home
 
     var lastBackPressedMillis:Long = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-    }
 
+    override fun initCreate(savedInstanceState: Bundle?) {
+
+    }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK){

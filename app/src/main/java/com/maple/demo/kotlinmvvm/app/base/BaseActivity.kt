@@ -1,5 +1,6 @@
 package com.maple.demo.kotlinmvvm.app.base
 
+import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
 /**
@@ -9,4 +10,16 @@ import android.support.v7.app.AppCompatActivity
  */
 abstract class BaseActivity : AppCompatActivity() {
 
+    abstract fun layoutResID():Int
+    abstract fun initCreate(savedInstanceState: Bundle?)
+
+    open fun onContentView(){
+        setContentView(layoutResID())
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        onContentView();
+        initCreate(savedInstanceState)
+    }
 }

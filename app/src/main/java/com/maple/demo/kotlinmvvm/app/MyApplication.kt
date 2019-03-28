@@ -1,6 +1,7 @@
 package com.maple.demo.kotlinmvvm.app
 
 import android.app.Application
+import com.blankj.utilcode.util.Utils
 
 /**
  * author: gaogq
@@ -16,5 +17,6 @@ class MyApplication : Application(){
     override fun onCreate() {
         super.onCreate()
         instance = this
+        Utils.init(this)
     }
 }
