@@ -14,12 +14,22 @@ class SplashActivity : BaseActivity(), OnTimerCallback {
 
     var timer:MyCountDownTimer? = null
 
+    override fun layoutResID(): Int  = R.layout.activity_splash
+
+    override fun initCreate(savedInstanceState: Bundle?) {
+        timer = MyCountDownTimer(AppConstants.value_timer_total,AppConstants.value_timer_interval,this)
+        timer?.start()
+        tv_time.setOnClickListener{
+            launchTarget()
+        }
+    }
+
     override fun onTimerStart() {
         tv_time.setText(0.toString())
     }
 
-    override fun onTimerTick(millis: Long) {
-        tv_time.setText((millis/1000).toString())
+    override fun onTimerTick(s: String) {
+        tv_time.setText(s)
     }
 
     override fun onTimerEnd() {
@@ -35,17 +45,6 @@ class SplashActivity : BaseActivity(), OnTimerCallback {
         }
         this@SplashActivity.finish()
     }
-
-    override fun layoutResID(): Int  = R.layout.activity_splash
-
-    override fun initCreate(savedInstanceState: Bundle?) {
-        timer = MyCountDownTimer(AppConstants.value_timer_total,AppConstants.value_timer_interval,this)
-        timer?.start()
-        tv_time.setOnClickListener{
-            launchTarget()
-        }
-    }
-
 
     override fun onDestroy() {
         super.onDestroy()

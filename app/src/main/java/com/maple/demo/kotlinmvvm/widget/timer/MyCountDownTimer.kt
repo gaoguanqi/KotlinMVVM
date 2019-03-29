@@ -16,7 +16,7 @@ class MyCountDownTimer( millisInFuture:Long, countDownInterval:Long) : CountDown
     }
 
     override fun onTick(millis: Long) {
-        mCallback?.onTimerTick(millis)
+        mCallback?.onTimerTick((millis/1000).toString())
     }
 
 

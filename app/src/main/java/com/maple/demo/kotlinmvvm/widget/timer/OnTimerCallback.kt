@@ -7,6 +7,6 @@ package com.maple.demo.kotlinmvvm.widget.timer
  */
 interface OnTimerCallback {
     fun onTimerStart()
-    fun onTimerTick(millis: Long)
+    fun onTimerTick(s: String)
     fun onTimerEnd()
 }
