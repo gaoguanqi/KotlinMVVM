@@ -63,7 +63,8 @@ dependencies {
     implementation 'com.github.GrenderG:Toasty:1.4.1'
     //https://github.com/gyf-dev/ImmersionBar
     implementation 'com.gyf.immersionbar:immersionbar:2.3.3'
-
+    //适配 https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
+    implementation 'me.jessyan:autosize:1.1.2'
     //data binding
     kapt 'com.android.databinding:compiler:3.1.4'
 

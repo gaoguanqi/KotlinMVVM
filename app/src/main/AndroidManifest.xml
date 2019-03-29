@@ -23,6 +23,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--适配（设计稿尺寸）-->
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="360"/>
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="640"/>
+
         <!--适配华为（huawei）刘海屏-->
         <meta-data
             android:name="android.notch_support"
@@ -32,7 +41,8 @@
             android:name="notch.config"
             android:value="portrait|landscape" />
 
-        <activity android:name=".view.activity.WeclomeActivity"/>
+        <activity android:name=".view.activity.WeclomeActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".view.activity.HomeActivity" />
     </application>
 
