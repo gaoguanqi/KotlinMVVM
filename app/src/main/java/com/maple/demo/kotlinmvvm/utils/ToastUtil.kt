@@ -24,7 +24,7 @@ class ToastUtil {
         }
 
         private fun show(text:String){
-            Toasty.info(MyApplication.instance, text, Toast.LENGTH_SHORT, true).show();
+            Toasty.info(MyApplication.instance, text, Toast.LENGTH_SHORT, false).show();
         }
     }
 }

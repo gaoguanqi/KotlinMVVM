@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.KeyEvent
 import com.maple.demo.kotlinmvvm.R
 import com.maple.demo.kotlinmvvm.app.base.BaseActivity
-import org.jetbrains.anko.toast
+import com.maple.demo.kotlinmvvm.utils.ToastUtil
 
 class HomeActivity : BaseActivity() {
     override fun layoutResID(): Int  = R.layout.activity_home
@@ -23,7 +23,7 @@ class HomeActivity : BaseActivity() {
                 this@HomeActivity.finish()
             }else{
                 lastBackPressedMillis = System.currentTimeMillis()
-                toast("再按一次退出程序")
+                ToastUtil.showToast("再按一次退出程序")
             }
             return true
         }

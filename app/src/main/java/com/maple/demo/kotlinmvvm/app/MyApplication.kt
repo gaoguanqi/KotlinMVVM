@@ -19,6 +19,6 @@ class MyApplication : Application(){
         super.onCreate()
         instance = this
         Utils.init(this)
-        Toasty.Config.getInstance().apply()
+        Toasty.Config.getInstance().setTextSize(14).apply()
     }
 }
