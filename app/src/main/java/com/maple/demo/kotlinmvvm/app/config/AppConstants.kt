@@ -6,11 +6,18 @@ package com.maple.demo.kotlinmvvm.app.config
  * description:
  */
 class AppConstants {
-    companion object {
-        val savekey_has_weclome = "hasWeclome"
+    object SaveInfoKey {
+        val HAS_WECLOME = "has_weclome"
+    }
 
-        val value_timer_interval = 1000L
-        val value_timer_total = 3000L
+
+    object GlobalValue {
+        val VALUE_TIMER_INTERVAL = 1000L
+        val VALUE_TIMER_TOTAL = 3000L
+    }
+
+    object BundleKey {
+        val EXTRA_INDEX = "extra_index"
     }
 
 }

@@ -1,9 +1,7 @@
 package com.maple.demo.kotlinmvvm.utils
 
 import android.support.annotation.StringRes
-import android.text.TextUtils
 import android.widget.Toast
-import com.blankj.utilcode.util.Utils
 import com.maple.demo.kotlinmvvm.app.MyApplication
 import es.dmoral.toasty.Toasty
 
@@ -15,12 +13,11 @@ import es.dmoral.toasty.Toasty
 class ToastUtil {
     companion object {
         fun showToast(text:String?){
-            if(!TextUtils.isEmpty(text))show(text!!)
+            text?.let { show(it) }
         }
 
         fun showToast(@StringRes resId:Int){
-            val text:String = UIUtils.getString(resId)
-            if(!TextUtils.isEmpty(text)) show(text)
+            UIUtils.getString(resId).also { show(it) }
         }
 
         private fun show(text:String){
