@@ -10,7 +10,6 @@ class AppConstants {
         val HAS_WECLOME = "has_weclome"
     }
 
-
     object GlobalValue {
         val VALUE_TIMER_INTERVAL = 1000L
         val VALUE_TIMER_TOTAL = 3000L
@@ -19,5 +18,4 @@ class AppConstants {
     object BundleKey {
         val EXTRA_INDEX = "extra_index"
     }
-
 }
