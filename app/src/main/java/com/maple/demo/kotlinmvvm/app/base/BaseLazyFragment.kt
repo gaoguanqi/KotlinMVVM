@@ -12,7 +12,6 @@ import android.view.ViewGroup
  */
 abstract class BaseLazyFragment : BaseFragment(){
 
-
     override fun initView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return super.initView(inflater, container, savedInstanceState)
     }

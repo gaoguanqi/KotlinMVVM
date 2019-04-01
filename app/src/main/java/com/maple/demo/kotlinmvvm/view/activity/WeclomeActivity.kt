@@ -16,7 +16,7 @@ class WeclomeActivity : BaseActivity() {
     override fun initCreate(savedInstanceState: Bundle?) {
         mList = arrayListOf(GuidePageFragment.newInstance(0),GuidePageFragment.newInstance(1),GuidePageFragment.newInstance(2))
         vp_weclome.adapter = WeclomePagerAdapter(this@WeclomeActivity.supportFragmentManager, mList)
-
     }
 
+    override fun useTransStateBar() = true
 }

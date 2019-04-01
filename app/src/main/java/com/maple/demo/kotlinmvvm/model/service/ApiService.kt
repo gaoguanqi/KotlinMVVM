@@ -7,4 +7,9 @@ package com.maple.demo.kotlinmvvm.model.service
  */
 interface ApiService {
 
+    companion object {
+        val BASE_URL:String ="https://api.douban.com"
+    }
+
+
 }
