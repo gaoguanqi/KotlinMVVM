@@ -11,9 +11,7 @@ abstract class BaseViewActivity : BaseActivity(){
 
     override fun onContentView() {
         val layoutId:Int = layoutResID()
-        if(layoutId != 0){
-            setContentView(layoutId)
-        }
+        (layoutId != 0).apply { setContentView(layoutId) }
     }
 
     override fun initCreate(savedInstanceState: Bundle?) {
