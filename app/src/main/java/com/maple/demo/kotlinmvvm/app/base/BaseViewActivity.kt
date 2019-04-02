@@ -1,5 +1,7 @@
 package com.maple.demo.kotlinmvvm.app.base
 
+import android.databinding.DataBindingUtil
+import android.databinding.ViewDataBinding
 import android.os.Bundle
 
 /**
@@ -7,16 +9,18 @@ import android.os.Bundle
  * time: 2019/3/27 18:19
  * description:
  */
-abstract class BaseViewActivity : BaseActivity(){
-
+abstract class BaseViewActivity<B : ViewDataBinding> : BaseActivity(){
+    lateinit var binding: B
     override fun onContentView() {
-        val layoutId:Int = layoutResID()
-        if(layoutId != 0){
-            setContentView(layoutId)
-        }
+        binding = DataBindingUtil.setContentView(this, layoutResID())
     }
 
     override fun initCreate(savedInstanceState: Bundle?) {
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.unbind()
     }
 }
