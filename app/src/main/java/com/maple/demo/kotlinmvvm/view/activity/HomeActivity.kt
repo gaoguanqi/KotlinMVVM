@@ -5,17 +5,14 @@ import android.view.KeyEvent
 import com.maple.demo.kotlinmvvm.R
 import com.maple.demo.kotlinmvvm.app.base.BaseActivity
 import com.maple.demo.kotlinmvvm.utils.ToastUtil
-import com.maple.demo.kotlinmvvm.widget.dialog.LoadingDialog
 
 class HomeActivity : BaseActivity() {
     override fun layoutResID(): Int  = R.layout.activity_home
-
     var lastBackPressedMillis:Long = 0
 
 
     override fun initCreate(savedInstanceState: Bundle?) {
 
-        LoadingDialog(this)
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
@@ -30,14 +27,5 @@ class HomeActivity : BaseActivity() {
             return true
         }
         return super.onKeyDown(keyCode, event)
-    }
-
-
-    open fun showLoading(){
-
-    }
-
-    open fun hideLoading(){
-
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.gyf.barlibrary.ImmersionBar
 import com.maple.demo.kotlinmvvm.R
+import com.maple.demo.kotlinmvvm.widget.dialog.LoadingDialog
 
 /**
  * author: gaogq
@@ -11,6 +12,8 @@ import com.maple.demo.kotlinmvvm.R
  * description:
  */
 abstract class BaseActivity : AppCompatActivity() {
+
+    lateinit var loadingDialog:LoadingDialog
 
     abstract fun layoutResID():Int
     abstract fun initCreate(savedInstanceState: Bundle?)
@@ -36,5 +39,22 @@ abstract class BaseActivity : AppCompatActivity() {
                 .navigationBarColor(R.color.transparent)
                 .navigationBarDarkIcon(true)
                 .init()
+    }
+
+
+    open fun showLoading(){
+        if(loadingDialog == null){
+            loadingDialog = LoadingDialog(this)
+        }
+
+        if(!loadingDialog!!.isShowing){
+            loadingDialog!!.show()
+        }
+    }
+
+    open fun hideLoading(){
+        if(loadingDialog != null && loadingDialog!!.isShowing){
+            loadingDialog!!.cancel()
+        }
     }
 }
