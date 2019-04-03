@@ -12,7 +12,7 @@ class HomeActivity : BaseActivity() {
 
 
     override fun initCreate(savedInstanceState: Bundle?) {
-
+        showLoading()
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {

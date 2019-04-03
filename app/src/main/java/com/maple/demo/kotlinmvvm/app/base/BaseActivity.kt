@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.gyf.barlibrary.ImmersionBar
 import com.maple.demo.kotlinmvvm.R
+import com.maple.demo.kotlinmvvm.utils.UIUtils
 import com.maple.demo.kotlinmvvm.widget.dialog.LoadingDialog
 
 /**
@@ -42,19 +43,16 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
-    open fun showLoading(){
-        if(loadingDialog == null){
-            loadingDialog = LoadingDialog(this)
-        }
-
-        if(!loadingDialog!!.isShowing){
-            loadingDialog!!.show()
+    open fun showLoading(smg:String = UIUtils.getString(R.string.msg_loading)){
+        loadingDialog = LoadingDialog(this,smg)
+        if(!loadingDialog.isShowing){
+            loadingDialog.show()
         }
     }
 
     open fun hideLoading(){
-        if(loadingDialog != null && loadingDialog!!.isShowing){
-            loadingDialog!!.cancel()
+        if(loadingDialog != null && loadingDialog.isShowing){
+            loadingDialog.cancel()
         }
     }
 }
