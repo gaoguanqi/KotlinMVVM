@@ -2,6 +2,7 @@ package com.maple.demo.kotlinmvvm.utils
 
 import android.text.TextUtils
 import android.util.Log
+import com.maple.demo.kotlinmvvm.BuildConfig
 
 /**
  * author: gaogq
@@ -11,7 +12,7 @@ import android.util.Log
 class LogUtils {
     companion object {
         fun logGGQ(msg:String?){
-            if(!TextUtils.isEmpty(msg)){
+            if(BuildConfig.DEBUG){
                 Log.i("GGQ", msg)
             }
         }

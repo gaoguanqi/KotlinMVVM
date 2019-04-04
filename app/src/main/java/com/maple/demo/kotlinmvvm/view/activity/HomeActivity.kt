@@ -1,10 +1,13 @@
 package com.maple.demo.kotlinmvvm.view.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import com.maple.demo.kotlinmvvm.R
 import com.maple.demo.kotlinmvvm.app.base.BaseActivity
+import com.maple.demo.kotlinmvvm.test.TestActivity
 import com.maple.demo.kotlinmvvm.utils.ToastUtil
+import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity() {
     override fun layoutResID(): Int  = R.layout.activity_home
@@ -12,7 +15,9 @@ class HomeActivity : BaseActivity() {
 
 
     override fun initCreate(savedInstanceState: Bundle?) {
-        showLoading()
+        btn_login.setOnClickListener {
+            startActivity(Intent(this@HomeActivity,TestActivity::class.java))
+        }
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {

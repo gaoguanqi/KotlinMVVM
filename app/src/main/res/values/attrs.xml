@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--这是多类型页面-->
-    <declare-styleable name="MultiStateView">
+    <declare-styleable name="MultipleStatusView">
         <attr name="msv_loadingView" format="reference" />
         <attr name="msv_successView" format="reference" />
         <attr name="msv_unknownView" format="reference" />

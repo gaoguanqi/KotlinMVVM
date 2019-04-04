@@ -21,7 +21,7 @@ import com.maple.demo.kotlinmvvm.utils.LogUtils
  * time: 2019/4/4 10:59
  * description:
  */
-class MultiStateView : FrameLayout {
+class MultipleStatusView : FrameLayout {
 
     private val STATE_LOADING: Int = 2
     private val STATE_SUCCESS: Int = 1
@@ -63,15 +63,16 @@ class MultiStateView : FrameLayout {
     }
 
     private fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        val array: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.MultiStateView)
+        val array: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.MultipleStatusView)
 
-        mLoadingViewId = array.getResourceId(R.styleable.MultiStateView_msv_loadingView, R.layout.layout_loading_view)
-        mSuccessViewId = array.getResourceId(R.styleable.MultiStateView_msv_successView, 0)
-        mEmptyViewId = array.getResourceId(R.styleable.MultiStateView_msv_emptyView, R.layout.layout_empty_view)
-        mEmptyDrawable = array.getDrawable(R.styleable.MultiStateView_msv_emptyViewImage)
-        mEmptyDesc = array.getString(R.styleable.MultiStateView_msv_emptyViewText)
-        mUnKnownViewId = array.getResourceId(R.styleable.MultiStateView_msv_unknownView, R.layout.layout_error_view)
-        mNetErrorViewId = array.getResourceId(R.styleable.MultiStateView_msv_netErrorView, R.layout.layout_no_network_view)
+        LogUtils.logGGQ("initView")
+        mLoadingViewId = array.getResourceId(R.styleable.MultipleStatusView_msv_loadingView, R.layout.layout_loading_view)
+        mSuccessViewId = array.getResourceId(R.styleable.MultipleStatusView_msv_successView, 0)
+        mEmptyViewId = array.getResourceId(R.styleable.MultipleStatusView_msv_emptyView, R.layout.layout_empty_view)
+        mEmptyDrawable = array.getDrawable(R.styleable.MultipleStatusView_msv_emptyViewImage)
+        mEmptyDesc = array.getString(R.styleable.MultipleStatusView_msv_emptyViewText)
+        mUnKnownViewId = array.getResourceId(R.styleable.MultipleStatusView_msv_unknownView, R.layout.layout_unknown_view)
+        mNetErrorViewId = array.getResourceId(R.styleable.MultipleStatusView_msv_netErrorView, R.layout.layout_net_error_view)
 
         array.recycle()
         mInflater = LayoutInflater.from(context)
