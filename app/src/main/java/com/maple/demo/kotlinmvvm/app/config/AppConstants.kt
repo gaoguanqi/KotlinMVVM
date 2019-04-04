@@ -7,15 +7,16 @@ package com.maple.demo.kotlinmvvm.app.config
  */
 class AppConstants {
     object SaveInfoKey {
-        val HAS_WECLOME = "has_weclome"
+        val HAS_WECLOME = "weclome"
     }
 
     object GlobalValue {
         val VALUE_TIMER_INTERVAL = 1000L
-        val VALUE_TIMER_TOTAL = 3000L
+        //val VALUE_TIMER_TOTAL = 3000L
+        val VALUE_TIMER_TOTAL = 1000L
     }
 
     object BundleKey {
-        val EXTRA_INDEX = "extra_index"
+        val EXTRA_INDEX = "index"
     }
 }

@@ -14,7 +14,7 @@ import com.maple.demo.kotlinmvvm.widget.dialog.LoadingDialog
  */
 abstract class BaseActivity : AppCompatActivity() {
 
-    lateinit var loadingDialog:LoadingDialog
+    var loadingDialog:LoadingDialog? = null
 
     abstract fun layoutResID():Int
     abstract fun initCreate(savedInstanceState: Bundle?)
@@ -43,16 +43,18 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
-    open fun showLoading(smg:String = UIUtils.getString(R.string.msg_loading)){
-        loadingDialog = LoadingDialog(this,smg)
-        if(!loadingDialog.isShowing){
-            loadingDialog.show()
+     fun showLoading(smg:String = UIUtils.getString(R.string.msg_loading)){
+        if(loadingDialog == null){
+            loadingDialog = LoadingDialog(this,smg)
+        }
+        if(!loadingDialog!!.isShowing){
+            loadingDialog!!.show()
         }
     }
 
-    open fun hideLoading(){
-        if(loadingDialog != null && loadingDialog.isShowing){
-            loadingDialog.cancel()
+     fun hideLoading(){
+        if(loadingDialog != null && loadingDialog!!.isShowing){
+            loadingDialog!!.cancel()
         }
     }
 }

@@ -77,4 +77,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
     implementation 'com.google.code.gson:gson:2.8.5'
 
+    //https://github.com/fengzhizi715/SAF-Kotlin-Utils
+    implementation 'com.safframework.utils:saf-kotlin-utils:0.1.1'
+    //implementation 'com.safframework.utils:saf-kotlin-ext:0.1.1'
+
 }

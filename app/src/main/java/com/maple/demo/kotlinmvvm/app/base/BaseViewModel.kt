@@ -16,5 +16,4 @@ open class BaseViewModel<T:BaseRepository>(application: MyApplication) : Android
 
     }
 
-
 }
