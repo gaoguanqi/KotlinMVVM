@@ -16,15 +16,16 @@ abstract class BaseViewActivity : BaseActivity(){
     override fun onContentView() {
        setContentView(R.layout.layout_base)
         initToolbar(toolbar)
-        initMultipleStatusView(multiple_status_view)
     }
 
-    open fun initMultipleStatusView(multipleStatusView: MultipleStatusView?){
+     fun initMultipleStatusView(multipleStatusView: MultipleStatusView?){
         if(multipleStatusView == null){
             return
         }
-        multipleStatusView.setSuccessView(layoutResID())
+       // this. mMultipleStatusView = multipleStatusView
     }
+
+
 
     open fun initToolbar(toolbar: Toolbar?){
         if(toolbar == null){
@@ -34,7 +35,6 @@ abstract class BaseViewActivity : BaseActivity(){
         getSupportActionBar()?.setDisplayShowTitleEnabled(false)
     }
 
-    override fun initCreate(savedInstanceState: Bundle?) {
 
-    }
+
 }
