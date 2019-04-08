@@ -1,6 +1,7 @@
 package com.maple.demo.kotlinmvvm.app.base
 
 import android.os.Bundle
+import android.support.annotation.ColorRes
 import android.support.v7.app.AppCompatActivity
 import com.gyf.barlibrary.ImmersionBar
 import com.maple.demo.kotlinmvvm.R
@@ -30,13 +31,23 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         onContentView();
-        if(useTransStateBar())setTransStateBar()
+        if(useTransStateBar()){
+            setTransStateBar()
+        }
         initCreate(savedInstanceState)
     }
 
     private fun setTransStateBar(){
         ImmersionBar.with(this)
                 .transparentStatusBar()
+                .navigationBarColor(R.color.transparent)
+                .navigationBarDarkIcon(true)
+                .init()
+    }
+
+    open fun setToolBarColor(@ColorRes resId:Int = R.color.toolbar){
+        ImmersionBar.with(this)
+                .barColor(resId)
                 .navigationBarColor(R.color.transparent)
                 .navigationBarDarkIcon(true)
                 .init()

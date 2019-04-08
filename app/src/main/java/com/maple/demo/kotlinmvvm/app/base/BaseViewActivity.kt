@@ -1,6 +1,8 @@
 package com.maple.demo.kotlinmvvm.app.base
 
-import android.os.Bundle
+import android.arch.lifecycle.ViewModelProviders
+import android.databinding.DataBindingUtil
+import android.databinding.ViewDataBinding
 import android.support.v7.widget.Toolbar
 import com.maple.demo.kotlinmvvm.R
 import com.maple.demo.kotlinmvvm.app.manager.state.MultipleStatusView
@@ -12,9 +14,15 @@ import kotlinx.android.synthetic.main.layout_toolbar.*
  * time: 2019/3/27 18:19
  * description:
  */
-abstract class BaseViewActivity : BaseActivity(){
+abstract class BaseViewActivity<VM:BaseViewModel,DB: ViewDataBinding> : BaseActivity(){
+
+    lateinit var model:VM
+    lateinit var binding: DB
+
     override fun onContentView() {
-       setContentView(R.layout.layout_base)
+        binding = DataBindingUtil.setContentView(this,R.layout.layout_base)
+        initMultipleStatusView(multiple_status_view)
+        ViewModelProviders.of(this).get(model::class.java);
         initToolbar(toolbar)
     }
 
@@ -23,6 +31,8 @@ abstract class BaseViewActivity : BaseActivity(){
             return
         }
        // this. mMultipleStatusView = multipleStatusView
+         multipleStatusView.setSuccessView(layoutResID())
+         multipleStatusView.showEmpty()
     }
 
 

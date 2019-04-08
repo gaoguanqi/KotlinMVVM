@@ -1,19 +1,28 @@
 package com.maple.demo.kotlinmvvm.app.base
 
-import android.arch.lifecycle.AndroidViewModel
-import com.maple.demo.kotlinmvvm.app.MyApplication
+import android.arch.lifecycle.ViewModel
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 
 /**
  * author: gaogq
  * time: 2019/3/28 17:52
  * description:
  */
-open class BaseViewModel<T:BaseRepository>(application: MyApplication) : AndroidViewModel(application) {
+abstract class BaseViewModel : ViewModel() {
 
-    lateinit var mRepository:T
+    var compositeDisposable: CompositeDisposable? = null
 
-    init {
-
+    fun addDisposable(disposable: Disposable){
+        if(compositeDisposable == null || compositeDisposable!!.isDisposed){
+            compositeDisposable = CompositeDisposable()
+        }
+        compositeDisposable?.add(disposable)
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        compositeDisposable?.dispose()
+        compositeDisposable = null
+    }
 }
