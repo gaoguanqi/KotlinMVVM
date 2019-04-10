@@ -18,4 +18,8 @@ class LoginActivity : BaseActivity() {
 
         }
     }
+
+    override fun onContentView() {
+        super.onContentView()
+    }
 }
