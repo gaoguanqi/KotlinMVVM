@@ -1,6 +1,8 @@
 package com.maple.demo.kotlinmvvm.app
 
 import android.app.Application
+import android.content.Context
+import android.support.multidex.MultiDex
 import com.blankj.utilcode.util.Utils
 import es.dmoral.toasty.Toasty
 import io.reactivex.Observable
@@ -19,6 +21,11 @@ class MyApplication : Application(){
         private set
     }
 
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
+        MultiDex.install(base)
+    }
     override fun onCreate() {
         super.onCreate()
         instance = this

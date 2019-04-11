@@ -2,7 +2,10 @@ package com.maple.demo.kotlinmvvm.view.activity
 
 import android.os.Bundle
 import com.maple.demo.kotlinmvvm.R
+import com.maple.demo.kotlinmvvm.app.MyApplication
 import com.maple.demo.kotlinmvvm.app.base.BaseActivity
+import com.maple.jetpackdemo.room.AppDatabase
+import com.maple.jetpackdemo.room.User
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**
@@ -16,6 +19,10 @@ class LoginActivity : BaseActivity() {
     override fun initCreate(savedInstanceState: Bundle?) {
         btn_login.setOnClickListener{
 
+            val database:AppDatabase = AppDatabase.getInstance(MyApplication.instance)
+            if (database.userDao().all.isEmpty()) {
+                database.userDao().insertUser(User().also { it.name = "张三" })
+            }
         }
     }
 
