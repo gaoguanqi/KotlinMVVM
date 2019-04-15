@@ -1,12 +1,6 @@
 package com.maple.jetpackdemo.room
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Delete
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
-import android.arch.persistence.room.OnConflictStrategy
-import android.arch.persistence.room.Update
-
+import android.arch.persistence.room.*
 
 
 /**
@@ -16,19 +10,22 @@ import android.arch.persistence.room.Update
  */
 @Dao
 interface UserDao {
-    @get:Query("SELECT * FROM table_user")
-    val all: List<User>
+    @Query("SELECT * FROM users")
+    fun getAllUser():List<User>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUser(user:User)
 
-    @Query("SELECT * FROM table_user WHERE uid = :id")
-    fun getUserById(id:Int):User
+    @Query("SELECT * FROM users WHERE id = :id")
+    fun getUserById(id:Long):User
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updateUser(user: User)
 
     @Delete
     fun deleteUser(user:User)
+
+    @Delete()
+    fun deleteAllUser(users:List<User>)
 
 }

@@ -52,4 +52,5 @@ class MyApplication : Application(){
 //        Utils.init(app)
 //        Toasty.Config.getInstance().setTextSize(14).apply()
 //    }
+
 }

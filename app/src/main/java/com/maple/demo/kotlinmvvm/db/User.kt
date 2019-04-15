@@ -9,10 +9,10 @@ import android.arch.persistence.room.PrimaryKey
  * time: 2019/4/10 16:26
  * description:
  */
-@Entity(tableName = "table_user")
+@Entity(tableName = "users")
 class User {
     @PrimaryKey(autoGenerate = true)
-    var id:Int = 0
+    var id:Long = 0
 
     @ColumnInfo(name = "name")
     lateinit var name:String

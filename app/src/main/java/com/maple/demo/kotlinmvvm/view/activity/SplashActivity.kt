@@ -38,7 +38,7 @@ class SplashActivity : BaseActivity(), OnTimerCallback {
 
     private fun launchTarget() {
         if (SPUtils.getInstance().getBoolean(AppConstants.SaveInfoKey.HAS_WECLOME, false)) {
-            startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+            startActivity(Intent(this@SplashActivity, TestActivity::class.java))
         } else {
             startActivity(Intent(this@SplashActivity, WeclomeActivity::class.java))
         }

@@ -44,6 +44,7 @@
             android:name=".view.activity.WeclomeActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".view.activity.HomeActivity" />
+        <activity android:name=".view.activity.TestActivity"/>
     </application>
 
 </manifest>

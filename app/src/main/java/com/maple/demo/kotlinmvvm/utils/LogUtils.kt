@@ -11,6 +11,7 @@ import com.maple.demo.kotlinmvvm.BuildConfig
  */
 class LogUtils {
     companion object {
+        @JvmStatic
         fun logGGQ(msg:String?){
             if(BuildConfig.DEBUG){
                 Log.i("GGQ", msg)

@@ -3,8 +3,6 @@ package com.maple.demo.kotlinmvvm.http
 import com.maple.demo.kotlinmvvm.BuildConfig
 import com.maple.demo.kotlinmvvm.model.service.ApiService
 import com.safframework.http.interceptor.LoggingInterceptor
-import com.safframework.utils.RetryWithDelay
-import io.reactivex.Maybe
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

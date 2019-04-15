@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.layout_toolbar.*
  * time: 2019/3/27 18:19
  * description:
  */
-abstract class BaseViewActivity<VM:BaseViewModel,DB: ViewDataBinding> : BaseActivity(){
+abstract class BaseViewActivity<VM:BaseViewModel,DB: ViewDataBinding> : BaseActivity(),IView{
 
     lateinit var model:VM
     lateinit var binding: DB

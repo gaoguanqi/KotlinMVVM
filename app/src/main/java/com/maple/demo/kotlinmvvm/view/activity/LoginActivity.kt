@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.maple.demo.kotlinmvvm.R
 import com.maple.demo.kotlinmvvm.app.MyApplication
 import com.maple.demo.kotlinmvvm.app.base.BaseActivity
+import com.maple.demo.kotlinmvvm.utils.LogUtils
 import com.maple.jetpackdemo.room.AppDatabase
 import com.maple.jetpackdemo.room.User
 import kotlinx.android.synthetic.main.activity_login.*
@@ -17,13 +18,22 @@ class LoginActivity : BaseActivity() {
     override fun layoutResID(): Int = R.layout.activity_login
 
     override fun initCreate(savedInstanceState: Bundle?) {
-        btn_login.setOnClickListener{
-
-            val database:AppDatabase = AppDatabase.getInstance(MyApplication.instance)
-            if (database.userDao().all.isEmpty()) {
-                database.userDao().insertUser(User().also { it.name = "张三" })
-            }
-        }
+        val database: AppDatabase = AppDatabase.getInstance(MyApplication.instance)
+//        btn_login.setOnClickListener{
+//            if (database.userDao().getAllUser().isEmpty()) {
+//
+//            }
+//        }
+//
+//
+//
+//
+//        btn_users.setOnClickListener {
+//            val users = database.userDao().getAllUser();
+//            for (user in users) {
+//                LogUtils.logGGQ("user id:${user.id}--name:${user.name}")
+//            }
+//        }
     }
 
     override fun onContentView() {
