@@ -1,6 +1,8 @@
 package com.maple.demo.kotlinmvvm.app.base
 
+import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.ViewModel
+import com.maple.demo.kotlinmvvm.app.MyApplication
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
@@ -9,7 +11,7 @@ import io.reactivex.disposables.Disposable
  * time: 2019/3/28 17:52
  * description:
  */
-abstract class BaseViewModel : ViewModel() {
+abstract class BaseViewModel(app:MyApplication) : AndroidViewModel(app) {
 
     var compositeDisposable: CompositeDisposable? = null
 

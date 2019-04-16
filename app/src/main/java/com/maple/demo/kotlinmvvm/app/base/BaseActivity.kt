@@ -1,5 +1,6 @@
 package com.maple.demo.kotlinmvvm.app.base
 
+import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.annotation.ColorRes
 import android.support.v7.app.AppCompatActivity

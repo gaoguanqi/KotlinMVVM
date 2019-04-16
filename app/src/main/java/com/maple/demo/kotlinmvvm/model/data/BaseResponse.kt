@@ -22,4 +22,6 @@ open class BaseResponse<T> : Serializable {
             return message!!
         }
     }
+
+
 }

@@ -14,15 +14,15 @@ import kotlinx.android.synthetic.main.layout_toolbar.*
  * time: 2019/3/27 18:19
  * description:
  */
-abstract class BaseViewActivity<VM:BaseViewModel,DB: ViewDataBinding> : BaseActivity(),IView{
+abstract class BaseViewActivity<DB: ViewDataBinding,VM:BaseViewModel> : BaseDBActivity<DB>(),IView{
 
-    lateinit var model:VM
-    lateinit var binding: DB
+    lateinit var viewModel:VM
+
 
     override fun onContentView() {
         binding = DataBindingUtil.setContentView(this,R.layout.layout_base)
         initMultipleStatusView(multiple_status_view)
-        ViewModelProviders.of(this).get(model::class.java);
+        ViewModelProviders.of(this).get(viewModel::class.java);
         initToolbar(toolbar)
     }
 
