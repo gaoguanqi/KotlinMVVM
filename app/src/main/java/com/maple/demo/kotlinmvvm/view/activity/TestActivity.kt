@@ -45,7 +45,8 @@ class TestActivity : AppCompatActivity() {
 
 
         btn5.setOnClickListener {
-            database.userDao().deleteAllUser(database.userDao().getAllUser())
+            var list = database.userDao().getAllUser()
+            database.userDao().deleteAllUser(list)
         }
 
         btn6.setOnClickListener {

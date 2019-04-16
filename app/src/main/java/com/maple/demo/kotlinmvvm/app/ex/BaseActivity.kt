@@ -15,14 +15,19 @@ abstract class BaseActivity<DB:ViewDataBinding>:AppCompatActivity() {
     abstract fun layoutResID():Int
     abstract fun initCreate(savedInstanceState: Bundle?)
 
-    protected val binding: DB by lazy { DataBindingUtil.setContentView<DB>(this, layoutResID()) }
+    protected val binding: DB by lazy { initBinding() }
+
+    protected fun initBinding() = DataBindingUtil.setContentView<DB>(this, layoutResID())
+
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initCreate(savedInstanceState)
-        //binding.setVariable(BR.)
-        binding.executePendingBindings()
+       // binding.setVariable(BR.viewModel, viewModel)
         binding.setLifecycleOwner(this)
+        initCreate(savedInstanceState)
     }
 
 }

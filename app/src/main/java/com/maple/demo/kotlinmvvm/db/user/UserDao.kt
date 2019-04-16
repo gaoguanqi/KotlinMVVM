@@ -14,7 +14,7 @@ interface UserDao {
     fun getAllUser():List<User>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUser(user:User)
+    fun insertUser(vararg user:User)
 
     @Query("SELECT * FROM users WHERE id = :id")
     fun getUserById(id:Long):User
@@ -25,7 +25,7 @@ interface UserDao {
     @Delete
     fun deleteUser(user:User)
 
-    @Delete()
+    @Delete
     fun deleteAllUser(users:List<User>)
 
 }
