@@ -3,6 +3,7 @@ package com.maple.demo.kotlinmvvm.app.base
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
+import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.Toolbar
 import com.maple.demo.kotlinmvvm.R
 import com.maple.demo.kotlinmvvm.app.manager.state.MultipleStatusView
@@ -45,6 +46,8 @@ abstract class BaseViewActivity<DB: ViewDataBinding,VM:BaseViewModel> : BaseDBAc
         getSupportActionBar()?.setDisplayShowTitleEnabled(false)
     }
 
+
+    fun  <T:BaseViewModel>createViewModel(activity:FragmentActivity,cls:Class<T>):T = ViewModelProviders.of(activity).get(cls)
 
 
 }
