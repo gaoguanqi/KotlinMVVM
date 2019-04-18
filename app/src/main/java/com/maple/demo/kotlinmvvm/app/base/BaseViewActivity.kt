@@ -1,9 +1,7 @@
 package com.maple.demo.kotlinmvvm.app.base
 
-import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
-import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.Toolbar
 import com.maple.demo.kotlinmvvm.R
 import com.maple.demo.kotlinmvvm.app.manager.state.MultipleStatusView
@@ -18,14 +16,15 @@ import kotlinx.android.synthetic.main.layout_toolbar.*
 abstract class BaseViewActivity<DB: ViewDataBinding,VM:BaseViewModel> : BaseActivity(),IView{
 
     lateinit var binding:DB
-    lateinit var viewModel:VM
 
-
+     abstract fun getBindingVariable(): Int
+     abstract fun getViewModel():VM
 
     override fun onContentView() {
         binding = DataBindingUtil.setContentView(this,R.layout.layout_base)
+        binding.executePendingBindings()
+        binding.setVariable(getBindingVariable(), getViewModel())
         initMultipleStatusView(multiple_status_view)
-        ViewModelProviders.of(this).get(viewModel::class.java);
         initToolbar(toolbar)
     }
 
@@ -38,8 +37,6 @@ abstract class BaseViewActivity<DB: ViewDataBinding,VM:BaseViewModel> : BaseActi
          multipleStatusView.showEmpty()
     }
 
-
-
     open fun initToolbar(toolbar: Toolbar?){
         if(toolbar == null){
             return
@@ -47,9 +44,4 @@ abstract class BaseViewActivity<DB: ViewDataBinding,VM:BaseViewModel> : BaseActi
         setSupportActionBar(toolbar)
         getSupportActionBar()?.setDisplayShowTitleEnabled(false)
     }
-
-
-    fun  <T:BaseViewModel>createViewModel(activity:FragmentActivity,cls:Class<T>):T = ViewModelProviders.of(activity).get(cls)
-
-
 }

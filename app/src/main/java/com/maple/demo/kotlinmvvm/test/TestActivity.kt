@@ -1,4 +1,4 @@
-package com.maple.demo.kotlinmvvm.view.activity
+package com.maple.demo.kotlinmvvm.test
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

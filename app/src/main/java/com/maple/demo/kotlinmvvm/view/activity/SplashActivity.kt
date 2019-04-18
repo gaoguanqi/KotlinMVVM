@@ -6,6 +6,7 @@ import com.blankj.utilcode.util.SPUtils
 import com.maple.demo.kotlinmvvm.R
 import com.maple.demo.kotlinmvvm.app.base.BaseActivity
 import com.maple.demo.kotlinmvvm.app.config.AppConstants
+import com.maple.demo.kotlinmvvm.test.TestActivity
 import com.maple.demo.kotlinmvvm.widget.timer.MyCountDownTimer
 import com.maple.demo.kotlinmvvm.widget.timer.OnTimerCallback
 import kotlinx.android.synthetic.main.activity_splash.*

@@ -6,4 +6,5 @@ package com.maple.demo.kotlinmvvm.app.base
  * description:
  */
 open class BaseRepository {
+
 }
