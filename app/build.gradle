@@ -49,9 +49,9 @@ android {
     }
 
 
-//    lintOptions {
-//        abortOnError true
-//    }
+    lintOptions {
+        abortOnError true
+    }
 }
 
 dependencies {
@@ -106,6 +106,15 @@ dependencies {
     // ViewModel and LiveData
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     kapt 'android.arch.lifecycle:compiler:1.1.1'
+
+    //koin
+    // Koin for Android
+    implementation 'org.koin:koin-android:1.0.2'
+    // Koin Android Scope feature
+    implementation 'org.koin:koin-android-scope:1.0.2'
+    // Koin Android ViewModel feature
+    implementation 'org.koin:koin-android-viewmodel:1.0.2'
+
 
     implementation 'com.android.support:multidex:1.0.3'
 

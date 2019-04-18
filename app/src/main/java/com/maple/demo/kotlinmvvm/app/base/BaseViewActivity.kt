@@ -15,9 +15,11 @@ import kotlinx.android.synthetic.main.layout_toolbar.*
  * time: 2019/3/27 18:19
  * description:
  */
-abstract class BaseViewActivity<DB: ViewDataBinding,VM:BaseViewModel> : BaseDBActivity<DB>(),IView{
+abstract class BaseViewActivity<DB: ViewDataBinding,VM:BaseViewModel> : BaseActivity(),IView{
 
+    lateinit var binding:DB
     lateinit var viewModel:VM
+
 
 
     override fun onContentView() {
