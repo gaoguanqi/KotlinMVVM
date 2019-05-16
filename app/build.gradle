@@ -116,4 +116,8 @@ dependencies {
 
     implementation 'com.android.support:multidex:1.0.3'
 
+    implementation 'com.github.gaoguanqi:XLoader:v1.0.0',{
+        exclude group: 'com.android.support'
+    }
+
 }

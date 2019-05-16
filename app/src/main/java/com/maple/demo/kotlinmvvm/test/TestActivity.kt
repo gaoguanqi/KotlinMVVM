@@ -2,11 +2,14 @@ package com.maple.demo.kotlinmvvm.test
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import com.maple.demo.kotlinmvvm.R
 import com.maple.demo.kotlinmvvm.app.MyApplication
 import com.maple.demo.kotlinmvvm.utils.LogUtils
 import com.maple.jetpackdemo.room.AppDatabase
 import com.maple.jetpackdemo.room.User
+import com.maple.ximageloader.ImageLoader
+import com.maple.ximageloader.glide.GlideImageConfig
 import kotlinx.android.synthetic.main.activity_test.*
 
 class TestActivity : AppCompatActivity() {
@@ -55,6 +58,11 @@ class TestActivity : AppCompatActivity() {
                 LogUtils.logGGQ("查询所有user id:${user.id}---name:${user.name}")
             }
         }
+
+
+        val url:String = "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1001726809,22466&fm=27&gp=0.jpg"
+        ImageLoader.getInstance().loadImage(MyApplication.instance,GlideImageConfig(url,iv))
+
 
     }
 }
