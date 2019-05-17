@@ -21,4 +21,6 @@
     <!--padding-->
     <dimen name="public_padding_10dp">10dp</dimen>
     <dimen name="public_padding_20dp">20dp</dimen>
+
+    <dimen name="public_appbar_height">46dp</dimen>
 </resources>

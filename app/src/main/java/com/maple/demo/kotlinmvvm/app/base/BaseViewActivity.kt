@@ -4,41 +4,67 @@ import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.support.v7.widget.Toolbar
 import com.maple.demo.kotlinmvvm.R
-import com.maple.demo.kotlinmvvm.app.manager.state.MultipleStatusView
-import kotlinx.android.synthetic.main.layout_base.*
+import com.maple.statuslayout.status.OnRetryListener
+import com.maple.statuslayout.status.StatusLayoutManager
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.layout_toolbar.*
+import java.util.concurrent.TimeUnit
 
 /**
  * author: gaogq
  * time: 2019/3/27 18:19
  * description:
  */
-abstract class BaseViewActivity<DB: ViewDataBinding,VM:BaseViewModel> : BaseActivity(),IView{
+abstract class BaseViewActivity<DB : ViewDataBinding, VM : BaseViewModel> : BaseActivity(), IView {
 
-    lateinit var binding:DB
-
-     abstract fun getBindingVariable(): Int
-     abstract fun getViewModel():VM
+    lateinit var binding: DB
+    abstract fun getBindingVariable(): Int
+    abstract fun getViewModel(): VM
+    protected var mStatusLayoutManager: StatusLayoutManager? = null
 
     override fun onContentView() {
-        binding = DataBindingUtil.setContentView(this,R.layout.layout_base)
+        binding = DataBindingUtil.setContentView(this, R.layout.layout_base)
         binding.executePendingBindings()
         binding.setVariable(getBindingVariable(), getViewModel())
-        initMultipleStatusView(multiple_status_view)
+        initStatusLayout()
         initToolbar(toolbar)
     }
 
-     fun initMultipleStatusView(multipleStatusView: MultipleStatusView?){
-        if(multipleStatusView == null){
-            return
+    private fun initStatusLayout() {
+        if(layoutResID() != 0) {
+            mStatusLayoutManager = StatusLayoutManager.newBuilder(this)
+                    .contentView(layoutResID())
+                    .emptyDataView(R.layout.layout_empty_view)
+                    .emptyDataRetryViewId(R.id.tv_click_empty)
+                    .errorView(R.layout.layout_error_view)
+                    .errorRetryViewId(R.id.tv_click_error)
+                    .netWorkErrorView(R.layout.layout_no_network_view)
+                    .netWorkErrorRetryViewId(R.id.tv_click_no_network)
+                    .loadingView(R.layout.layout_loading_view)
+                    .onRetryListener(object : OnRetryListener {
+                        override fun onRetry() {
+                            mStatusLayoutManager?.showLoading()
+                            onStatusViewRetry()
+                        }
+                    })
+                    .build()
         }
-       // this. mMultipleStatusView = multipleStatusView
-         multipleStatusView.setSuccessView(layoutResID())
-         multipleStatusView.showEmpty()
+
+
     }
 
-    open fun initToolbar(toolbar: Toolbar?){
-        if(toolbar == null){
+    /**
+     * 错误页和空页面点击重试
+     */
+    open fun onStatusViewRetry() {
+
+    }
+
+
+    open fun initToolbar(toolbar: Toolbar?) {
+        if (toolbar == null) {
             return
         }
         setSupportActionBar(toolbar)
