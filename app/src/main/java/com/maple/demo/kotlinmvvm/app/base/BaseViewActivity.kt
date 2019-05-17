@@ -3,14 +3,11 @@ package com.maple.demo.kotlinmvvm.app.base
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.support.v7.widget.Toolbar
+import android.widget.LinearLayout
 import com.maple.demo.kotlinmvvm.R
 import com.maple.statuslayout.status.OnRetryListener
 import com.maple.statuslayout.status.StatusLayoutManager
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.layout_toolbar.*
-import java.util.concurrent.TimeUnit
 
 /**
  * author: gaogq
@@ -50,9 +47,9 @@ abstract class BaseViewActivity<DB : ViewDataBinding, VM : BaseViewModel> : Base
                         }
                     })
                     .build()
+            val rootLayout:LinearLayout = findViewById<LinearLayout>(R.id.root_base)
+            rootLayout.addView(mStatusLayoutManager?.getRootLayout())
         }
-
-
     }
 
     /**
