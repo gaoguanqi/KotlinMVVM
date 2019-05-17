@@ -8,6 +8,8 @@ import com.maple.demo.kotlinmvvm.R
 import com.maple.statuslayout.status.OnRetryListener
 import com.maple.statuslayout.status.StatusLayoutManager
 import kotlinx.android.synthetic.main.layout_toolbar.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 
 /**
  * author: gaogq
@@ -27,6 +29,7 @@ abstract class BaseViewActivity<DB : ViewDataBinding, VM : BaseViewModel> : Base
         binding.setVariable(getBindingVariable(), getViewModel())
         initStatusLayout()
         initToolbar(toolbar)
+
     }
 
     private fun initStatusLayout() {
@@ -43,6 +46,9 @@ abstract class BaseViewActivity<DB : ViewDataBinding, VM : BaseViewModel> : Base
                     .onRetryListener(object : OnRetryListener {
                         override fun onRetry() {
                             mStatusLayoutManager?.showLoading()
+                            runBlocking {     // 但是这个表达式阻塞了主线程
+                                delay(1000L)  // ……我们延迟 2 秒来保证 JVM 的存活
+                            }
                             onStatusViewRetry()
                         }
                     })
